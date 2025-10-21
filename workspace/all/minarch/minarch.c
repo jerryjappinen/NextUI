@@ -5516,7 +5516,7 @@ static int OptionSaveChanges_onConfirm(MenuList* list, int i) {
 			break;
 		}
 	}
-	Menu_message(message, (char*[]){ BTN_MENU_ACCEPT_CODE,"OKAY", NULL });
+	Menu_message(message, (char*[]){ BTN_CODE_MENU_ACCEPT,"OKAY", NULL });
 	OptionSaveChanges_updateDesc();
 	return MENU_CALLBACK_EXIT;
 }
@@ -6723,7 +6723,7 @@ static void Menu_loop(void) {
 
 			if (show_setting && !GetHDMI()) GFX_blitHardwareHints(screen, show_setting);
 			else GFX_blitButtonGroup((char*[]){ BTN_SLEEP==BTN_POWER?"POWER":"MENU","SLEEP", NULL }, 0, screen, 0);
-			GFX_blitButtonGroup((char*[]){ BTN_MENU_CANCEL_CODE,"BACK", BTN_MENU_ACCEPT_CODE,"OKAY", NULL }, 1, screen, 1);
+			GFX_blitButtonGroup((char*[]){ BTN_CODE_MENU_CANCEL,"BACK", BTN_CODE_MENU_ACCEPT,"OKAY", NULL }, 1, screen, 1);
 
 			// list
 			oy = (((DEVICE_HEIGHT / FIXED_SCALE) - PADDING * 2) - (MENU_ITEM_COUNT * PILL_SIZE)) / 2;

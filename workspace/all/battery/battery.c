@@ -765,7 +765,7 @@ int main(int argc, char *argv[])
             else
                 GFX_blitButtonGroup((char *[]){"L/R", "SCROLL", "L1/R1", "ZOOM", NULL}, 0, screen, 0);
 
-            GFX_blitButtonGroup((char *[]){BTN_MENU_CANCEL_CODE, "BACK", NULL}, 1, screen, 1);
+            GFX_blitButtonGroup((char *[]){BTN_CODE_MENU_CANCEL, "BACK", NULL}, 1, screen, 1);
 
             GFX_flip(screen);
             dirty = 0;

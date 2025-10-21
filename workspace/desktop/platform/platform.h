@@ -9,6 +9,12 @@
 
 ///////////////////////////////
 
+extern int swap_abxy;
+extern int ps_abxy;
+extern int swap_accept_cancel;
+
+///////////////////////////////
+
 #define BUTTON_UP		BUTTON_NA
 #define BUTTON_DOWN		BUTTON_NA
 #define BUTTON_LEFT		BUTTON_NA
@@ -95,11 +101,26 @@
 
 ///////////////////////////////
 
-#define BTN_MENU_ACCEPT        BTN_A
-#define BTN_MENU_CANCEL        BTN_B
-#define BTN_MENU_ACCEPT_CODE   "A"
-#define BTN_MENU_CANCEL_CODE   "B"
-#define BTN_MENU_BOOT_GAME     BTN_X
+// Support for hardware swapped buttons and bot Nintendo/Xbox layout button arrangement
+// Swaps visible button codes shown to user, not behavior
+// - △
+// - ◯
+// - ╳
+// - □
+#define BTN_CODE_FACE_RIGHT    (ps_abxy?"◯":(swap_abxy?"A":"B")) // Right face button
+#define BTN_CODE_FACE_DOWN     (ps_abxy?"✕":(swap_abxy?"B":"A")) // Bottom face button
+#define BTN_CODE_FACE_LEFT     (ps_abxy?"□":(swap_abxy?"Y":"X")) // Left face button
+#define BTN_CODE_FACE_UP       (ps_abxy?"△":(swap_abxy?"X":"Y")) // Top face button
+
+// Swaps button behavior, not visible codes
+#define BTN_CODE_MENU_ACCEPT        (swap_accept_cancel?BTN_CODE_FACE_DOWN:BTN_CODE_FACE_RIGHT)
+#define BTN_CODE_MENU_CANCEL        (swap_accept_cancel?BTN_CODE_FACE_RIGHT:BTN_CODE_FACE_DOWN)
+
+#define BTN_MENU_ACCEPT             (swap_accept_cancel?BTN_A:BTN_B)
+#define BTN_MENU_CANCEL             (swap_accept_cancel?BTN_B:BTN_A)
+
+#define BTN_CODE_MENU_BOOT_GAME     BTN_CODE_FACE_UP
+#define BTN_MENU_BOOT_GAME          BTN_X // Always top face button
 
 #define BTN_SLEEP 			BTN_POWER
 #define BTN_WAKE 			BTN_POWER

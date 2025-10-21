@@ -2529,7 +2529,7 @@ int main (int argc, char *argv[]) {
 				if (show_setting && !GetHDMI()) GFX_blitHardwareHints(screen, show_setting);
 				else GFX_blitButtonGroup((char*[]){ BTN_SLEEP==BTN_POWER?"POWER":"MENU","SLEEP",  NULL }, 0, screen, 0);
 
-				GFX_blitButtonGroup((char*[]){ BTN_MENU_CANCEL_CODE,"BACK", BTN_MENU_ACCEPT_CODE,"OPEN", NULL }, 1, screen, 1);
+				GFX_blitButtonGroup((char*[]){ BTN_CODE_MENU_CANCEL,"BACK", BTN_CODE_MENU_ACCEPT,"OPEN", NULL }, 1, screen, 1);
 
 				if(CFG_getShowQuickswitcherUI()) {
 					#define MENU_ITEM_SIZE 72 // item size, top line
@@ -2702,10 +2702,10 @@ int main (int argc, char *argv[]) {
 						SDL_FreeSurface(text);
 					}
 
-					if(can_resume) GFX_blitButtonGroup((char*[]){ BTN_MENU_CANCEL_CODE,"BACK",  NULL }, 0, screen, 0);
+					if(can_resume) GFX_blitButtonGroup((char*[]){ BTN_CODE_MENU_CANCEL,"BACK",  NULL }, 0, screen, 0);
 					else GFX_blitButtonGroup((char*[]){ BTN_SLEEP==BTN_POWER?"POWER":"MENU","SLEEP",  NULL }, 0, screen, 0);
 
-					GFX_blitButtonGroup((char*[]){ "Y", "REMOVE", BTN_MENU_ACCEPT_CODE,"RESUME", NULL }, 1, screen, 1);
+					GFX_blitButtonGroup((char*[]){ "Y", "REMOVE", BTN_CODE_MENU_ACCEPT,"RESUME", NULL }, 1, screen, 1);
 
 					if(has_preview) {
 						// lotta memory churn here
@@ -2890,15 +2890,15 @@ int main (int argc, char *argv[]) {
 
 				if (total==0) {
 					if (stack->count>1) {
-						GFX_blitButtonGroup((char*[]){ BTN_MENU_CANCEL_CODE,"BACK",  NULL }, 0, screen, 1);
+						GFX_blitButtonGroup((char*[]){ BTN_CODE_MENU_CANCEL,"BACK",  NULL }, 0, screen, 1);
 					}
 				}
 				else {
 					if (stack->count>1) {
-						GFX_blitButtonGroup((char*[]){ BTN_MENU_CANCEL_CODE,"BACK", BTN_MENU_ACCEPT_CODE,"OPEN", NULL }, 1, screen, 1);
+						GFX_blitButtonGroup((char*[]){ BTN_CODE_MENU_CANCEL,"BACK", BTN_CODE_MENU_ACCEPT,"OPEN", NULL }, 1, screen, 1);
 					}
 					else {
-						GFX_blitButtonGroup((char*[]){ BTN_MENU_ACCEPT_CODE,"OPEN", NULL }, 0, screen, 1);
+						GFX_blitButtonGroup((char*[]){ BTN_CODE_MENU_ACCEPT,"OPEN", NULL }, 0, screen, 1);
 					}
 				}
 
